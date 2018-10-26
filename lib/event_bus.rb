@@ -8,8 +8,6 @@ class SimpleEventBus
   class << self
     extend Forwardable
 
-    private
-
     def instance
       @instance ||= new
     end
@@ -22,8 +20,8 @@ class SimpleEventBus
     @once = handler_hash
   end
 
-  def emit(event, **params)
-    caller = handler_caller(event, params)
+  def emit(event, *args)
+    caller = handler_caller(event, args)
 
     @subscribers[event].each(&caller)
     @once[event].delete_if(&caller)
@@ -37,6 +35,8 @@ class SimpleEventBus
     raise ArgumentError, 'object or proc handler required' if handler.nil?
 
     (once ? @once : @subscribers)[event][handler.object_id] = handler
+
+    handler.object_id
   end
 
   def unsubscribe(event, id)
@@ -49,12 +49,12 @@ class SimpleEventBus
     Hash.new { |h, k| h[k] = {} }
   end
 
-  def handler_caller(event, params)
+  def handler_caller(event, args)
     proc do |_id, handler|
       if handler.is_a?(Proc)
-        handler.call(params)
+        handler.call(*args)
       else
-        handler.send(event, params)
+        handler.send(event, *args)
       end
 
       true

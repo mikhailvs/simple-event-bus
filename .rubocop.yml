@@ -4,3 +4,7 @@ Style/Documentation:
 Naming/FileName:
   Exclude:
     - lib/event-bus.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/*_spec.rb

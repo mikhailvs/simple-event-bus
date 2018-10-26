@@ -4,7 +4,7 @@ lib = File.expand_path('lib', __dir__)
 
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'event_bus'
+require 'event-bus'
 
 Gem::Specification.new do |s|
   s.name = 'event-bus'
