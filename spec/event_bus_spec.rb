@@ -85,4 +85,27 @@ describe SimpleEventBus do
 
     expect(ran).to be(true)
   end
+
+  it 'can be included in classes' do
+    handler_class = Class.new do
+      include SimpleEventBus[:class_event]
+
+      class << self
+        def ran
+          @ran || false
+        end
+
+        def class_event
+          puts 'wat'
+          @ran = true
+        end
+      end
+    end
+
+    expect(handler_class.ran).to be(false)
+
+    SimpleEventBus.emit(:class_event)
+
+    expect(handler_class.ran).to be(true)
+  end
 end

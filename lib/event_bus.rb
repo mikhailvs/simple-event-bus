@@ -8,6 +8,14 @@ class SimpleEventBus
   class << self
     extend Forwardable
 
+    def [](*events)
+      Module.new.tap do |m|
+        m.define_singleton_method(:included) do |base|
+          events.each { |e| SimpleEventBus.subscribe(e, base) }
+        end
+      end
+    end
+
     def instance
       @instance ||= new
     end
