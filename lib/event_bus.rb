@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 
 class SimpleEventBus
-  VERSION = '0.1.0'.freeze
+  VERSION = '0.1.0'
 
   class << self
     extend Forwardable

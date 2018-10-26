@@ -1,17 +1,6 @@
-Metrics/BlockLength:
-  Exclude:
-
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Layout/MultilineOperationIndentation:
-  EnforcedStyle: indented
-
-Metrics/ClassLength:
-  Enabled: false
-
 Style/Documentation:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
+Naming/FileName:
+  Exclude:
+    - lib/event-bus.rb
