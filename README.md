@@ -10,6 +10,7 @@ gem 'simple-event-bus'
 Shell:
 ```sh
 gem install simple-event-bus
+```
 
 ## Usage
 Use the `SimpleEventBus` class as a singleton, or instantiate new instances of it.
