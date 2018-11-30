@@ -1,9 +1,22 @@
 # SimpleEventBus
 
+## Install
+
+Gemfile:
+```ruby
+gem 'simple-event-bus'
+```
+
+Shell:
+```sh
+gem install simple-event-bus
+
 ## Usage
 Use the `SimpleEventBus` class as a singleton, or instantiate new instances of it.
 
 ```ruby
+require 'event-bus'
+
 SimpleEventBus.subscribe(:event_happened) do |params|
   puts "Event handled with block: #{params.inspect}"
 end
