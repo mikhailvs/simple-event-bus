@@ -1,4 +1,5 @@
 # SimpleEventBus
+[![Gem Version](https://badge.fury.io/rb/simple-event-bus.svg)](https://badge.fury.io/rb/simple-event-bus)
 
 ## Install
 
