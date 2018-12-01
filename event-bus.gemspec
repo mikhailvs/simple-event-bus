@@ -4,7 +4,7 @@ lib = File.expand_path('lib', __dir__)
 
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'event-bus'
+require 'simple-event-bus'
 
 Gem::Specification.new do |s|
   s.name = 'simple-event-bus'
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.email = ['slyusarevmikhail@gmail.com']
   s.summary = 'Simple event bus. Easily emit and handle events.'
   s.homepage = 'https://github.com/mikhailvs/simple-event-bus'
-  s.files = ['lib/event-bus.rb', 'lib/event_bus.rb']
+  s.files = ['lib/simple-event-bus.rb', 'lib/simple_event_bus.rb']
   s.require_paths = ['lib']
   s.license = 'MIT'
 
